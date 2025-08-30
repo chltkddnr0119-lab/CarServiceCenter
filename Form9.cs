@@ -25,6 +25,7 @@ namespace CarServiceCenter
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
+
             
         }
 
