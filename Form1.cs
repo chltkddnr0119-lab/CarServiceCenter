@@ -36,5 +36,11 @@ namespace CarServiceCenter
             form10.Show();
             this.Hide();
         }
+
+        private void btnShowList_Click(object sender, EventArgs e)
+        {
+            Form7 form7 = new Form7();
+            form7.Show();
+        }
     }
 }

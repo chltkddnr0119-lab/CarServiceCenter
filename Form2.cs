@@ -21,16 +21,16 @@ namespace CarServiceCenter
         {
             public static string SavedCarNumber { get; set; }
             public static string SavedCarName { get; set; }
-            public static string SavedStrOrder {  get; set; }
+            public static string SavedStrOrder { get; set; }
             public static DateTime InputTime { get; set; }
-            public static int SavedTotalPrice {  get; set; }
-            
+            public static int SavedTotalPrice { get; set; }
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
             string strOrder = "";
             int TotalPrice = 0;
+
             if (checkBox1.Checked == true)
             {
                 strOrder += checkBox1.Text + "\n";
@@ -64,7 +64,6 @@ namespace CarServiceCenter
             if (checkBox7.Checked == true)
             {
                 strOrder += checkBox7.Text + "\n";
-               
             }
             if (checkBox8.Checked == true)
             {
@@ -89,7 +88,6 @@ namespace CarServiceCenter
             if (checkBox12.Checked == true)
             {
                 strOrder += checkBox12.Text + "\n";
-              
             }
             if (checkBox13.Checked == true)
             {
@@ -101,47 +99,40 @@ namespace CarServiceCenter
                 strOrder += checkBox14.Text + "\n";
                 TotalPrice += 50000;
             }
+
             if (tb_CarNumber.Text == "" || tb_CarName.Text == "")
             {
                 MessageBox.Show("차량 번호와 차종을 다시 확인해 주세요.");
                 return;
             }
-            //else
-            //{
-            //    form7.listView1.Items.Add(new ListViewItem(new string[] {}))
-            //}
+
             if (strOrder == "")
             {
                 MessageBox.Show("정비서비스를 다시 확인해 주세요.");
                 return;
             }
+
+            // 기존 CarInfo 저장 로직 유지
             CarInfo.SavedCarNumber = tb_CarNumber.Text;
             CarInfo.SavedCarName = tb_CarName.Text;
             CarInfo.SavedStrOrder = strOrder;
             CarInfo.InputTime = DateTime.Now;
             CarInfo.SavedTotalPrice = TotalPrice;
-            
+
             string carNumber = tb_CarNumber.Text;
             string carName = tb_CarName.Text;
 
-            
-
-            string str = "차량 번호: " + tb_CarNumber.Text + "\n차량 모델: " + tb_CarName.Text + "\n정비서비스: " + strOrder+ "\n\n선택하셨습니다.";
+            string str = "차량 번호: " + tb_CarNumber.Text + "\n차량 모델: " + tb_CarName.Text + "\n정비서비스: " + strOrder + "\n\n선택하셨습니다.";
             MessageBox.Show(str);
 
+            // [수정됨] Form7의 static 메서드를 호출하여 데이터 저장
+            Form7.AddRepairRequest(carNumber, carName, strOrder);
 
-
+            // 대기 목록 화면(Form7) 띄우기
             Form7 form7 = new Form7();
-            form7.AddRepairRequest(carNumber, carName, strOrder);
             form7.Show();
-            this.Close();
-
-
+            this.Close(); // 현재 접수 창 닫기
         }
-
-    
-
-        
     }
 }
 

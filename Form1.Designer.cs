@@ -34,6 +34,7 @@
             btnPay = new Button();
             pictureBox1 = new PictureBox();
             btn_PriceList = new Button();
+            btnShowList = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -106,12 +107,26 @@
             btn_PriceList.UseVisualStyleBackColor = true;
             btn_PriceList.Click += btn_PriceList_Click;
             // 
+            // btnShowList
+            // 
+            btnShowList.BackColor = Color.Black;
+            btnShowList.FlatStyle = FlatStyle.Flat;
+            btnShowList.ForeColor = Color.White;
+            btnShowList.Location = new Point(747, 88);
+            btnShowList.Name = "btnShowList";
+            btnShowList.Size = new Size(75, 23);
+            btnShowList.TabIndex = 5;
+            btnShowList.Text = "대기목록";
+            btnShowList.UseVisualStyleBackColor = false;
+            btnShowList.Click += btnShowList_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(829, 558);
+            Controls.Add(btnShowList);
             Controls.Add(btn_PriceList);
             Controls.Add(btnPay);
             Controls.Add(btnReceipt);
@@ -130,5 +145,6 @@
         private Button btnPay;
         private PictureBox pictureBox1;
         private Button btn_PriceList;
+        private Button btnShowList;
     }
 }

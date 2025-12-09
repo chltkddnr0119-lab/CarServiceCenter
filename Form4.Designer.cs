@@ -82,7 +82,7 @@
             btnCheck2.TabIndex = 4;
             btnCheck2.Text = "확인";
             btnCheck2.UseVisualStyleBackColor = true;
-            btnCheck2.Click += btnCheck2_Click;
+            btnCheck2.Click += btnCheck2_Click_1;
             // 
             // pictureBox1
             // 
